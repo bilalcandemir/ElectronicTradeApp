@@ -125,6 +125,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource{
             self.stopAnimating()
             self.CompleteOrderButton.alpha = 1
             complation(true)
+            print("Selamsss")
         }
     }
     func TotalPriceMethod(x:Int){       //Hala Daha düzgün bir method yazmadım ancak şu anda total price labelında doğru değerler gözüküyor.
