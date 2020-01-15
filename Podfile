@@ -12,5 +12,6 @@ target 'ETicApp' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Storage'
 	pod 'NVActivityIndicatorView'
+	pod 'SDWebImage', '~> 5.0'
 
 end

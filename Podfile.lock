@@ -91,6 +91,9 @@ PODS:
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
+  - SDWebImage (5.4.2):
+    - SDWebImage/Core (= 5.4.2)
+  - SDWebImage/Core (5.4.2)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -98,6 +101,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - NVActivityIndicatorView
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
@@ -119,6 +123,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - NVActivityIndicatorView
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
@@ -139,7 +144,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  SDWebImage: 4ca2dc4eefae4224bea8f504251cda485a363745
 
-PODFILE CHECKSUM: 635c050644a5b280abde38eca68fa91e422b3123
+PODFILE CHECKSUM: 6add41b21bfe0f6c542d63c615f74a310c815eb2
 
 COCOAPODS: 1.8.3

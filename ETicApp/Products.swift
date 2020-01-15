@@ -12,10 +12,11 @@ class Proudcts {
     var Id:Int
     var pName:String
     var pPrice:Int
-    
-    init(id:Int, name:String, price:Int) {
+    var imagePath:String
+    init(id:Int, name:String, price:Int, image:String) {
         self.Id = id
         self.pName = name
         self.pPrice = price
+        self.imagePath = image
     }
 }

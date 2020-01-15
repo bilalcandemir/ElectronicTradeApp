@@ -24,6 +24,7 @@
 		5671CD222385614300F36029 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5671CD202385614300F36029 /* ProductCell.xib */; };
 		5676857123943DE2008A4CF7 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5676857023943DE2008A4CF7 /* BasketViewController.swift */; };
 		56768573239984E5008A4CF7 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56768572239984E5008A4CF7 /* ProfileSettingsViewController.swift */; };
+		5681993623CB4B3E00230DEA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681993523CB4B3E00230DEA /* Color.swift */; };
 		56C913A52387291600847D52 /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C913A42387291600847D52 /* basket.png */; };
 		DB0F7CD2F0BDA25606869FE6 /* Pods_ETicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF752B11A77888704292F634 /* Pods_ETicApp.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		5671CD202385614300F36029 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		5676857023943DE2008A4CF7 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		56768572239984E5008A4CF7 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		5681993523CB4B3E00230DEA /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		56C913A42387291600847D52 /* basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.png; sourceTree = "<group>"; };
 		C39FC21071CF5E220BD0CD49 /* Pods-ETicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETicApp.debug.xcconfig"; path = "Target Support Files/Pods-ETicApp/Pods-ETicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FF752B11A77888704292F634 /* Pods_ETicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				5651683923831DBE00B657DB /* LaunchScreen.storyboard */,
 				5651683C23831DBE00B657DB /* Info.plist */,
 				56516842238328BF00B657DB /* GoogleService-Info.plist */,
+				5681993523CB4B3E00230DEA /* Color.swift */,
 			);
 			path = ETicApp;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				5651683323831DBD00B657DB /* ViewController.swift in Sources */,
 				565168452383391B00B657DB /* PasswordViewController.swift in Sources */,
 				5651684723833FD400B657DB /* NewUserViewController.swift in Sources */,
+				5681993623CB4B3E00230DEA /* Color.swift in Sources */,
 				5671CD1A2385225800F36029 /* Products.swift in Sources */,
 				5651682F23831DBD00B657DB /* AppDelegate.swift in Sources */,
 				5671CD212385614300F36029 /* ProductCell.swift in Sources */,

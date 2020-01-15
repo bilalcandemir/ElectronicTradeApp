@@ -17,12 +17,16 @@ class ProfileSettingsViewController: UIViewController {
             print("Error")
         }
         performSegue(withIdentifier: "toSignInVC", sender: nil)
-        
     }
+    @IBOutlet weak var logOutButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Kullanıcı Ayarları"
+        logOutButton.tintColor = Color.textColor
+        logOutButton.backgroundColor = Color.tintColor
+        logOutButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     

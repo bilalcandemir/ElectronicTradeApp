@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import NVActivityIndicatorView
+import SDWebImage
 class DetailsViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -25,15 +26,18 @@ class DetailsViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var productPriceLabel: UILabel!
     
     var selectedProductNames = ""
-    var selectedProductPictures = UIImage()
     var selectedProductPrice = Int()
+    var selectedImageUrl = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         productNameLabel.text = selectedProductNames
-        productImage.image = selectedProductPictures
         productPriceLabel.text = String(selectedProductPrice) + "TL"
         self.title = selectedProductNames
-        
+        productImage.sd_setImage(with: URL(string: selectedImageUrl[choosenIndex - 1]))
+        self.navigationController?.navigationBar.tintColor = Color.tintColor
+        addBasket.tintColor = Color.textColor
+        addBasket.backgroundColor = Color.tintColor
+        addBasket.layer.cornerRadius = 5
     }
     
     func alert(){

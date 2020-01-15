@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import NVActivityIndicatorView
+import AVFoundation
 class BasketViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var TotalPriceLabel: UILabel!
@@ -38,6 +39,9 @@ class BasketViewController: UIViewController, NVActivityIndicatorViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         let size = CGSize(width: 30.0, height: 30.0)
         self.startAnimating(size, message: "Yükleniyor", color: .blue, textColor: .white, fadeInAnimation: nil)
         
@@ -125,10 +129,9 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource{
             self.stopAnimating()
             self.CompleteOrderButton.alpha = 1
             complation(true)
-            print("Selamsss")
         }
     }
-    func TotalPriceMethod(x:Int){       //Hala Daha düzgün bir method yazmadım ancak şu anda total price labelında doğru değerler gözüküyor.
+    func TotalPriceMethod(x:Int){       //Hala Daha düzgün bir method yazamadım ancak şu anda total price labelında doğru değerler gözüküyor.
         self.TotalPriceLabel.text = "Borcunuz: " + String(x) + " TL"
     }
     
