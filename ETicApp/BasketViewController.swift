@@ -18,11 +18,6 @@ class BasketViewController: UIViewController, NVActivityIndicatorViewable {
         deleteProduct { (succes) in
             if succes{
                 self.CompleteOrderButton.alpha = 0  //Sepet Boş ise complete order butonu görünmez yapıldı
-                self.getData { (succes) in
-                    if succes{
-                        self.tableView.reloadData() //Ürün silindikten sonra tableViewi Handler ile reload etmeme rağmen ürün sepetten çıkıp girince yok oluyor
-                    }
-                }
             }
         }
         }
@@ -30,20 +25,19 @@ class BasketViewController: UIViewController, NVActivityIndicatorViewable {
     
     
     let ref = Database.database().reference().child("Basket")
-    var Basket = [String]()
-    var TotalPrice = [Int]()
+    var productNames = [String]()
+    var productPrices = [Int]()
     var Toplam = 0
+    let productID = [Int]()
     var choosenNumber = Int()
     var productviewmodel = ProductViewModel()
-    var basket1 = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
         let size = CGSize(width: 30.0, height: 30.0)
-        self.startAnimating(size, message: "Yükleniyor", color: .blue, textColor: .white, fadeInAnimation: nil)
+        self.startAnimating(size, message: "Yükleniyor", color: .orange, textColor: .white, fadeInAnimation: nil)
         
         CompleteOrderButton.alpha = 0
         
@@ -51,26 +45,27 @@ class BasketViewController: UIViewController, NVActivityIndicatorViewable {
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.productviewmodel.basketLoad { (succes) in  //MVVM biraz karıştı ama :)
+        self.productviewmodel.basketLoad { (succes) in
             if succes{
-                self.basket1 = self.productviewmodel.basket
+                self.CompleteOrderButton.alpha = 1
+                self.productNames = self.productviewmodel.basket
+                self.productPrices = self.productviewmodel.basketPrice
+                self.tableView.reloadData()
                 self.stopAnimating()
             }
             
         }
-        
     }
 }
 
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Basket.count
+        return productNames.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let products = productviewmodel.basket[indexPath.row]     // Load işlemini view model ile yapma
-        let product = Basket[indexPath.row]
-        self.Toplam = self.Toplam + TotalPrice[indexPath.row]
+        let product = productNames[indexPath.row]
+        self.Toplam = self.Toplam + productPrices[indexPath.row]
         TotalPriceMethod(x: self.Toplam)
         let cell = UITableViewCell()
         cell.textLabel?.text = product
@@ -86,9 +81,9 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource{
                 }
             }
             
-            Basket.remove(at: indexPath.row)
+            productNames.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-            self.Toplam =  self.Toplam - self.TotalPrice[indexPath.row]
+            self.Toplam =  self.Toplam - self.productPrices[indexPath.row]
             if self.Toplam > 0{
                 self.TotalPriceLabel.text = "Borcunuz " + String(self.Toplam) + " TL"
             }
@@ -100,6 +95,12 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+
+    
+}
+//Functions
+extension BasketViewController{
+    
     func deleteProduct(complation: @escaping (_ succes:Bool) -> ()){
         self.ref.removeValue()
         self.TotalPriceLabel.text = "Ürünler için geri dön!"
@@ -110,20 +111,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    func getData(complation: @escaping (_ succes:Bool) -> ()){
-        ref.observe(.childAdded) { (snapshot) in
-            let snapshotValue = snapshot.value as? NSDictionary
-            let name = snapshotValue?["ProductName"] as? String ?? ""
-            let price = snapshotValue?["ProductPrice"] as? Int ?? 0
-            self.Basket.append(name)
-            self.TotalPrice.append(price)
-            self.stopAnimating()
-            self.CompleteOrderButton.alpha = 1
-            complation(true)
-        }
-    }
     func TotalPriceMethod(x:Int){       //Hala Daha düzgün bir method yazamadım ancak şu anda total price labelında doğru değerler gözüküyor.
         self.TotalPriceLabel.text = "Borcunuz: " + String(x) + " TL"
     }
-    
 }

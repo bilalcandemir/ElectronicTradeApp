@@ -13,6 +13,7 @@ class ProductViewModel{
     let ref = Database.database().reference().child("Products")
     let basketRef = Database.database().reference().child("Basket")
     var basket = [String]()
+    var basketPrice = [Int]()
     
     
     var productList = [Proudcts]()
@@ -41,9 +42,11 @@ class ProductViewModel{
     
     func basketLoad(complation: @escaping (_ succes:Bool) -> ()){
         basketRef.observe(.childAdded) { (snapshot) in
-            //let snapshotValue = snapshot.value as? NSDictionary
-            //let name = snapshotValue?["ProductName"] as? String ?? ""
-            //let price = snapshotValue?["ProductPrice"] as? Int ?? 0
+            let snapshotValue = snapshot.value as? NSDictionary
+            let name = snapshotValue?["ProductName"] as? String ?? ""
+            let price = snapshotValue?["ProductPrice"] as? Int ?? 0
+            self.basket.append(name)
+            self.basketPrice.append(price)
             complation(true)
         }
     }
