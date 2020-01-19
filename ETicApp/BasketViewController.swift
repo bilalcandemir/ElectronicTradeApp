@@ -58,16 +58,7 @@ class BasketViewController: UIViewController, NVActivityIndicatorViewable {
             }
             
         }
-
-        if Basket.count == 0{
-            self.stopAnimating()
-        }
         
-        getData { (succes) in
-            if succes{
-                self.tableView.reloadData()
-            }
-        }
     }
 }
 

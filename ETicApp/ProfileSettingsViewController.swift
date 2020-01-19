@@ -9,16 +9,18 @@
 import UIKit
 import Firebase
 class ProfileSettingsViewController: UIViewController {
-    @IBAction func LogOutButton(_ sender: Any) {
+    @IBAction func LogOut(_ sender: Any) {
         do{
-            try
-                Auth.auth().signOut()
-        }catch{
-            print("Error")
-        }
-        performSegue(withIdentifier: "toSignInVC", sender: nil)
+                try
+                    Auth.auth().signOut()
+            }catch{
+                print("Error")
+            }
+            performSegue(withIdentifier: "toSignInVC", sender: nil)
+        
     }
     @IBOutlet weak var logOutButton: UIButton!
+    
     
     
     override func viewDidLoad() {

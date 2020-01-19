@@ -74,9 +74,12 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource{
         self.choosenIndex = productviewmodel.ID[indexPath.row]
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
-    
-    
-    
+}
+//Functions & More legible code
+extension ProductViewController{
+    @objc func goingtoBasket() {
+           performSegue(withIdentifier: "toBasketVC", sender: self)
+       }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailsVC"{
             let destinationVC = segue.destination as! DetailsViewController
@@ -90,13 +93,5 @@ extension ProductViewController: UITableViewDelegate, UITableViewDataSource{
             destinationVC.choosenNumber = choosenIndex
         }
     }
-    
-    
-    @objc func goingtoBasket() {
-        performSegue(withIdentifier: "toBasketVC", sender: self)
-    }
-    
-    
-    
 }
 

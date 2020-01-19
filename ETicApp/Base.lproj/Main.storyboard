@@ -277,38 +277,38 @@
         <!--Profile Settings View Controller-->
         <scene sceneID="DlL-dt-f8P">
             <objects>
-                <viewController storyboardIdentifier="ProfileSettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vc6-lf-xP3" customClass="ProfileSettingsViewController" customModule="ETicApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vc6-lf-xP3" customClass="ProfileSettingsViewController" customModule="ETicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAb-A8-onT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wv-hb-pqc">
-                                <rect key="frame" x="129" y="269" width="63" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvO-0W-vDQ">
+                                <rect key="frame" x="101" y="269" width="118" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="WGQ-er-6Tg"/>
+                                </constraints>
                                 <state key="normal" title="Çıkış Yap"/>
                                 <connections>
-                                    <action selector="LogOutButton:" destination="Vc6-lf-xP3" eventType="touchUpInside" id="dPF-Jb-cFM"/>
-                                    <action selector="logOutButton:" destination="Vc6-lf-xP3" eventType="touchUpInside" id="QPe-NV-gR8"/>
+                                    <action selector="LogOut:" destination="Vc6-lf-xP3" eventType="touchUpInside" id="BXa-4a-20Z"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ufR-7Y-7Us" firstAttribute="trailing" secondItem="9Wv-hb-pqc" secondAttribute="trailing" constant="128" id="8or-n8-SjP"/>
-                            <constraint firstItem="ufR-7Y-7Us" firstAttribute="bottom" secondItem="9Wv-hb-pqc" secondAttribute="bottom" constant="269" id="AfF-5x-HiG"/>
-                            <constraint firstItem="9Wv-hb-pqc" firstAttribute="leading" secondItem="ufR-7Y-7Us" secondAttribute="leading" constant="129" id="qsK-NO-2Ai"/>
-                            <constraint firstItem="9Wv-hb-pqc" firstAttribute="top" secondItem="ufR-7Y-7Us" secondAttribute="top" constant="225" id="vGR-GA-6fG"/>
+                            <constraint firstItem="UvO-0W-vDQ" firstAttribute="centerX" secondItem="jAb-A8-onT" secondAttribute="centerX" id="Iyi-H1-TvH"/>
+                            <constraint firstItem="UvO-0W-vDQ" firstAttribute="centerY" secondItem="jAb-A8-onT" secondAttribute="centerY" id="xAO-Ca-tBI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ufR-7Y-7Us"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ajf-TZ-HCF"/>
                     <connections>
-                        <outlet property="logOutButton" destination="9Wv-hb-pqc" id="oa9-wZ-w3D"/>
-                        <segue destination="Dde-ef-Tf4" kind="presentation" identifier="toSignInVC" modalPresentationStyle="fullScreen" id="3Bg-Se-Y0h"/>
+                        <outlet property="logOutButton" destination="UvO-0W-vDQ" id="8Lt-A0-ryP"/>
+                        <segue destination="Dde-ef-Tf4" kind="presentation" identifier="toSignInVC" modalPresentationStyle="fullScreen" id="H4O-B4-c6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZD-wV-QnL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2660" y="-671"/>
+            <point key="canvasLocation" x="2658.75" y="-671.83098591549299"/>
         </scene>
         <!--Basket View Controller-->
         <scene sceneID="1Ai-w6-XCF">
@@ -392,6 +392,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5r4-Bt-XzP">
                                 <rect key="frame" x="120" y="410" width="81" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="Dds-g2-R4d"/>
+                                    <constraint firstAttribute="height" constant="30" id="Uox-6T-AYR"/>
+                                </constraints>
                                 <state key="normal" title="Sepete Ekle"/>
                                 <connections>
                                     <action selector="add:" destination="PxR-sm-B0f" eventType="touchUpInside" id="mzK-yD-MOk"/>
@@ -503,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8S-A6-7uk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="-155"/>
+            <point key="canvasLocation" x="1721" y="-800"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eE3-db-GeM">
@@ -529,7 +533,7 @@
         <image name="person.circle" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Bg-Se-Y0h"/>
+        <segue reference="H4O-B4-c6A"/>
         <segue reference="eEl-u8-afC"/>
     </inferredMetricsTieBreakers>
 </document>
